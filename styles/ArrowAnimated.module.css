@@ -1,0 +1,30 @@
+/* Arrow & Hover Animation */
+#arrows {
+  width: 75px;
+  height: 65px;
+}
+#arrows:hover polygon {
+  fill: #FFF;
+  -webkit-transition: all .2s ease-out;
+  transition: all .2s ease-out;
+}
+#arrows:hover polygon.bottom {
+  -webkit-transform: translateY(-18px);
+  transform: translateY(-18px);
+}
+#arrows:hover polygon.top {
+  -webkit-transform: translateY(18px);
+  transform: translateY(18px);
+}
+
+.middle, .top, .bottom {
+  fill: #FFF;
+  -webkit-transition: all .2s ease-out;
+  transition: all .2s ease-out;
+}
+polygon.middle {
+  opacity: 0.75;
+}
+polygon.top {
+  opacity: 0.5;
+}

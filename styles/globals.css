@@ -1,9 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 1.4rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Nunito Sans",
+              "Source Sans Pro", Helvetica, Arial, sans-serif;
+
 }
 
 a {
