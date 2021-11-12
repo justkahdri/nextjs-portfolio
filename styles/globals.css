@@ -3,6 +3,13 @@
 :root {
   font-size: 62.5%;
   scroll-behavior: smooth;
+
+  /* COLOURS */
+  --primary: #28a745;
+  --dark-primary: #20923b;
+  --secondary: #868e96;
+  --light: #f8f9fa;
+  --dark: #343434;
 }
 
 html,
@@ -12,8 +19,14 @@ body {
   font-size: 1.4rem;
   font-family: -apple-system, BlinkMacSystemFont, "Nunito Sans",
               "Source Sans Pro", Helvetica, Arial, sans-serif;
-
 }
+
+button {
+  font-family: -apple-system, BlinkMacSystemFont, "Nunito Sans",
+  "Source Sans Pro", Helvetica, Arial, sans-serif;
+  cursor: pointer;
+}
+
 
 a {
   color: inherit;

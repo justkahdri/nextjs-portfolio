@@ -5,17 +5,20 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 
 import ArrowAnimated from "@components/ArrowAnimated";
+import StyledButton from "@components/StyledButton";
 
 const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>{"Joaquín Montes"}</title>
+        {/* <!-- Primary Meta Tags --> */}
+        <title>Joaquín Montes | Software Developer</title>
+        <meta content="Joaquín Montes | Software Developer" name="title" />
         <meta
-          content="Welcome to my portfolio! Here you will see some of my work and my experience as a developer."
+          content="Welcome to my portfolio! Here you will see some of my work and my experience as a developer.
+I'm focused on frontend dev using technologies such as NextJS and React."
           name="description"
         />
-        <link href="/favicon.ico" rel="icon" />
       </Head>
 
       <main className={styles.main}>
@@ -33,7 +36,18 @@ const Home: NextPage = () => {
             objective is to become a fullstack senior developer. Maybe you can help me achieve it!
           </p>
 
-          <a>get in touch: jrmontes@estudiantes.unsam.com</a>
+          {/* <p>
+            get in touch:
+            <a href="mailto:jrmontes@estudiantes.unsam.edu.ar">jrmontes@estudiantes.unsam.edu.ar</a>
+          </p> */}
+          <div className={styles["two-buttons"]}>
+            <StyledButton color="secondary" tagTarget="contact">
+              Contact
+            </StyledButton>
+            <StyledButton color="primary" tagTarget="projects">
+              View Projects
+            </StyledButton>
+          </div>
 
           <a className={styles.down} href="#skills">
             <ArrowAnimated />
