@@ -12,7 +12,7 @@ const Home: NextPage = () => {
     <div>
       <Head>
         {/* <!-- Primary Meta Tags --> */}
-        <title>Joaquín Montes | Software Developer</title>
+        <title>Joaquín Montes</title>
         <meta content="Joaquín Montes | Software Developer" name="title" />
         <meta
           content="Welcome to my portfolio! Here you will see some of my work and my experience as a developer.
@@ -54,30 +54,20 @@ I'm focused on frontend dev using technologies such as NextJS and React."
           </a>
         </section>
 
-        <div className={styles.grid} id="skills">
-          <a className={styles.card} href="https://nextjs.org/docs">
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a className={styles.card} href="https://nextjs.org/learn">
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a className={styles.card} href="https://github.com/vercel/next.js/tree/master/examples">
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            className={styles.card}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>Instantly deploy your Next.js site to a public URL with Vercel.</p>
-          </a>
-        </div>
+        <section className={styles.grid} id="skills">
+          {Array(4)
+            .fill("")
+            .map(() => (
+              <article className={styles.category}>
+                <h2>Libraries</h2>
+                <ul>
+                  <li>React</li>
+                  <li>React</li>
+                  <li>React</li>
+                </ul>
+              </article>
+            ))}
+        </section>
       </main>
     </div>
   );
