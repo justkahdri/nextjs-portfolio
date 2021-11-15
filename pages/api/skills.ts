@@ -3,15 +3,10 @@ import type {NextApiRequest, NextApiResponse} from "next";
 const SKILLS = {
   languages: ["JavaScript (ES2020)", "TypeScript", "Python", "SQL", "HTML", "CSS/Sass"],
   frameworks: ["ReactJS", "NextJS", "Chakra UI", "Node", "Bootstrap", "Formik"],
-  tools: ["Bash", "Git & Github", "Unit Testing (Jest)"],
+  tools: ["Bash/Shell", "Git & Github", "Unit Testing (Jest)"],
+  design: ["Adobe Photoshop", "Adobe Illustrator", "Adobe XD", "Wireframing"],
 };
 
-interface Data {
-  languages: string[];
-  frameworks: string[];
-  tools: string[];
-}
-
-export default function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
+export default function handler(req: NextApiRequest, res: NextApiResponse<Skills>) {
   res.status(200).json(SKILLS);
 }

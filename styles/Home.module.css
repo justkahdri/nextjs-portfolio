@@ -1,3 +1,14 @@
+.main {
+  width: fit-content;
+}
+
+.italic {
+  font-size: 2.5rem;
+  font-style: italic;
+}
+
+/* HERO SECTION */
+
 .hero {
   /* TEXT */
   color: white;
@@ -9,7 +20,7 @@
   background-size: cover;
 
   /* SIZING */
-  padding: 2rem 120px 0 80px;
+  padding: 2rem 12rem 0 12rem;
   min-height: 500px;
   height: 100vh;
 
@@ -21,10 +32,11 @@
 
 .title {
   font-size: 4rem;
-  margin-bottom: 6rem;
+  margin: 2rem 0 6rem 0;
 }
 
 .description, .full-description {
+  font-weight: 300;
   font-size: 3.7rem;
 }
 
@@ -81,7 +93,7 @@
 }
 
 /* LARGE DEVICES */
-@media only screen and (min-width: 2000px) {
+@media only screen and (min-width: 2200px) {
   .hero {
     padding-left: 5vw;
     padding-right: 5vw;
@@ -89,10 +101,12 @@
 
   .title {
     font-size: 4.4rem;
+    margin-bottom: 8rem;
   }
 
   .description, .full-description {
     font-size: 4rem;
+    margin-top: 2rem;
     display: block;
     max-width: 1800px;
   }
@@ -103,9 +117,18 @@
 .grid {
   --gap-size: 8vw;
   display: grid;
-  grid-template: repeat(2, 1fr) / repeat(2, 1fr);
-  grid-gap: 8rem var(--gap-size);
+  min-height: 80vh;
+  grid-template: min-content repeat(2, 1fr) / repeat(2, 1fr);
+  grid-template-areas:  'heading heading'
+                        'content content'
+                        'content content';
+  grid-gap: 6rem var(--gap-size);
   padding: 6rem 0 6rem var(--gap-size);
+}
+
+.grid > h2 {
+  grid-area: heading;
+  margin: 0;
 }
 
 .category ul {
@@ -119,7 +142,7 @@
 }
 
 
-.category > h2 {
+.category > h3 {
   text-transform: uppercase;
   font-size: 1.6rem;
   color: var(--primary);
@@ -127,4 +150,64 @@
   font-weight: 300;
   margin-top: 0;
   margin-bottom: 2.5rem;
+}
+
+
+/* PROJECTS SECTION */
+.stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  padding: 0 4rem;
+}
+
+.stack > * {
+  margin-top: 5rem;
+}
+
+.stack > *:first-child {
+  margin-top: 0;
+}
+
+.project {
+  height: 480px;
+  display: flex;
+  box-shadow: 4px 4px 15px 1px rgba(0, 0, 0, 0.1);
+  background: #D2F3F4;
+}
+
+.project-content {
+  overflow-y: auto;
+  flex: 1;
+  padding: 3rem 4rem;
+  font-weight: 400;
+}
+
+.project-content > span {
+  background: var(--light);
+  font-size: 1.2rem;
+  padding: 0.5rem;
+}
+
+.project-content > h3 {
+  text-transform: uppercase;
+  margin: 1rem 0;
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+.project-content > p {
+  margin: 3rem 0;
+  font-size: 1.6rem;
+}
+
+.project-content > a {
+  margin: 0;
+}
+
+.project-cover {
+  object-fit: cover;
+  height: 100%;
+  width: 50%;
 }
