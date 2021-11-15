@@ -1,18 +1,19 @@
 import React from "react";
 import type {NextPage, GetStaticProps} from "next";
 import Head from "next/head";
-import Image from "next/image";
 
 import styles from "../styles/Home.module.css";
 
 import ArrowAnimated from "@components/ArrowAnimated";
 import StyledButton from "@components/StyledButton";
+import ProjectCard from "@components/ProjectCard";
 
 interface Props {
   skills: Skills;
+  projects: Project[];
 }
 
-const Home: NextPage<Props> = ({skills}) => {
+const Home: NextPage<Props> = ({skills, projects}) => {
   return (
     <div>
       <Head>
@@ -46,10 +47,10 @@ I'm focused on frontend dev using technologies such as NextJS and React."
             <a href="mailto:jrmontes@estudiantes.unsam.edu.ar">jrmontes@estudiantes.unsam.edu.ar</a>
           </p> */}
           <div className={styles["two-buttons"]}>
-            <StyledButton isUpperCase color="secondary" tagTarget="contact">
+            <StyledButton isUpperCase color="secondary" url="#contact">
               Contact
             </StyledButton>
-            <StyledButton isUpperCase color="primary" tagTarget="projects">
+            <StyledButton isUpperCase color="primary" url="#projects">
               Projects
             </StyledButton>
           </div>
@@ -74,32 +75,8 @@ I'm focused on frontend dev using technologies such as NextJS and React."
         </section>
 
         <section className={styles.stack} id="projects">
-          {Object.entries(skills).map(([category, values]) => (
-            <article key={category} className={styles.project}>
-              <div className={styles["project-content"]}>
-                <span>💍 {values[1]}</span>
-                <h3>{category}</h3>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-                  molestiae quas vel sint commodi repudiandae.
-                </p>
-                <p>
-                  Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius
-                  earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa
-                  officia aut!
-                </p>
-                <StyledButton color="dark" tagTarget="https://github.com/justkahdri/just-payys">
-                  See more
-                </StyledButton>
-              </div>
-              <Image
-                alt={category}
-                className={styles["project-cover"]}
-                height={500}
-                src="/images/studio.jpg"
-                width={400}
-              />
-            </article>
+          {projects.map((project) => (
+            <ProjectCard key={project.title} {...project} />
           ))}
         </section>
       </main>
@@ -108,12 +85,16 @@ I'm focused on frontend dev using technologies such as NextJS and React."
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch(`${process.env.BASE_URL}/api/skills`);
-  const skills: Skills = await res.json();
+  const skillsRes = await fetch(`${process.env.BASE_URL}/api/skills`);
+  const skills = await skillsRes.json();
+
+  const projectsRes = await fetch(`${process.env.BASE_URL}/api/projects`);
+  const projects = await projectsRes.json();
 
   return {
     props: {
       skills,
+      projects,
     },
   };
 };

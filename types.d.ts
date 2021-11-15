@@ -5,6 +5,14 @@ declare global {
     tools: string[];
     design: string[];
   }
+
+  interface Project {
+    title: string;
+    description: string | string[];
+    tag: string;
+    cover: string;
+    url: string;
+  }
 }
 
 export {};
