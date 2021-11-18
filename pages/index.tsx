@@ -1,6 +1,8 @@
 import React from "react";
 import type {NextPage, GetServerSideProps} from "next";
 import Head from "next/head";
+import {MdMail} from "react-icons/md";
+import {BsLinkedin, BsGithub, BsTwitter} from "react-icons/bs";
 
 import styles from "../styles/Home.module.css";
 
@@ -79,6 +81,48 @@ I'm focused on frontend dev using technologies such as NextJS and React."
           {projects.map((project) => (
             <ProjectCard key={project.title} {...project} />
           ))}
+        </section>
+
+        <section className={styles.contact} id="contact">
+          <h2>Get in touch</h2>
+          <div className={styles.links}>
+            <a
+              className="featured"
+              href="mailto:jrmontes@estudiantes.unsam.edu.ar"
+              referrerPolicy="no-referrer"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <MdMail /> Email
+            </a>
+            <a
+              className="featured"
+              href="https://github.com/justkahdri"
+              referrerPolicy="no-referrer"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <BsGithub /> Github
+            </a>
+            <a
+              className="featured"
+              href="https://linkedin.com/in/joaquin-montes"
+              referrerPolicy="no-referrer"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <BsLinkedin /> LinkedIn
+            </a>
+            <a
+              className="featured"
+              href="https://twitter.com/justkahdri"
+              referrerPolicy="no-referrer"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <BsTwitter /> Twitter
+            </a>
+          </div>
         </section>
       </main>
       <Footer />

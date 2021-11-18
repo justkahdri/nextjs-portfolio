@@ -52,7 +52,7 @@
 /* SMALL DEVICES */
 @media only screen and (max-width: 767px) {
   .project, .project:nth-child(even) {
-    flex-direction: column-reverse;
+    flex-direction: column;
     height: fit-content;
   }
 

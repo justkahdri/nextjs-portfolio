@@ -111,7 +111,10 @@
 
   .description, .full-description {
     font-size: 4rem;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 2rem;
+    text-align: center;
     display: block;
     max-width: 1800px;
   }
@@ -178,3 +181,36 @@
     grid-template: auto / repeat(3, 1fr);
   }
 }
+
+/* CONTACT SECTION */
+.contact {
+  padding: 0 4rem;
+  margin: 10rem 0;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 3rem;
+  font-style: italic;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+}
+
+.contact svg {
+  color: var(--primary);
+  height: 3rem;
+  margin-right: 6px;
+  width: 3rem;
+}
+
+.contact a {
+  margin: 0 1.5vw;
+  font-weight: 400;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+}
+
