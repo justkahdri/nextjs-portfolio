@@ -1,5 +1,5 @@
 import React from "react";
-import type {NextPage, GetStaticProps} from "next";
+import type {NextPage, GetServerSideProps} from "next";
 import Head from "next/head";
 
 import styles from "../styles/Home.module.css";
@@ -86,7 +86,7 @@ I'm focused on frontend dev using technologies such as NextJS and React."
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const skillsRes = await fetch(`${process.env.BASE_URL}/api/skills`);
   const skills = await skillsRes.json();
 
