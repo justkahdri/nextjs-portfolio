@@ -39,12 +39,18 @@
 }
 
 .cover {
-  object-fit: cover;
+  margin: 0;
+  position: relative;
   height: 100%;
+  width: 50%;
+}
+
+.cover img {
+  object-fit: cover;
 }
 
 /* SMALL DEVICES */
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 767px) {
   .project, .project:nth-child(even) {
     flex-direction: column-reverse;
     height: fit-content;
@@ -64,6 +70,11 @@
     font-size: 1.9rem;
   }
   .content > a {
+    width: 100%;
+  }
+
+  .cover {
+    height: 500px;
     width: 100%;
   }
 }

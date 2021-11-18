@@ -20,13 +20,9 @@ const ProjectCard = ({title, description, cover, tag, url, background = "#D2F3F4
           See more
         </StyledButton>
       </div>
-      <Image
-        alt={title}
-        className={styles.cover}
-        height={500}
-        src={`/images/${cover}`}
-        width={400}
-      />
+      <figure className={styles.cover}>
+        <Image alt={title} layout="fill" src={`/images/${cover}`} />
+      </figure>
     </article>
   );
 };

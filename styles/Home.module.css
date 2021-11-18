@@ -160,18 +160,21 @@
 
 /* PROJECTS SECTION */
 .stack {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
+  display: grid;
+  grid-template: auto / 1fr;
   padding: 0 4rem;
+  gap: 5rem;
   margin-bottom: 8rem;
 }
 
-.stack > * {
-  margin-top: 5rem;
+@media only screen and (min-width: 1680px) {
+  .stack {
+    grid-template: auto / repeat(2, 1fr);
+  }
 }
 
-.stack > *:first-child {
-  margin-top: 0;
+@media only screen and (min-width: 2500px) {
+  .stack {
+    grid-template: auto / repeat(3, 1fr);
+  }
 }
