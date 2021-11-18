@@ -10,7 +10,7 @@ const PROJECTS: Project[] = [
     ],
     cover: "capigram.png",
     tag: "📱 Progressive Web App",
-    url: "https://github.com/justkahdri/files_organizer",
+    url: "https://capigram.vercel.app/",
   },
   {
     title: "Just MELI",
