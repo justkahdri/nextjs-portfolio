@@ -11,6 +11,7 @@ declare global {
     description: string | string[];
     tag: string;
     cover: string;
+    background?: string;
     url: string;
   }
 }
