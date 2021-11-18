@@ -25,6 +25,10 @@ body {
               "Source Sans Pro", Helvetica, Arial, sans-serif;
 }
 
+#__next {
+  width: fit-content;
+}
+
 button {
   font-family: -apple-system, BlinkMacSystemFont, "Nunito Sans",
   "Source Sans Pro", Helvetica, Arial, sans-serif;

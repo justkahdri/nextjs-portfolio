@@ -7,6 +7,7 @@ import styles from "../styles/Home.module.css";
 import ArrowAnimated from "@components/ArrowAnimated";
 import StyledButton from "@components/StyledButton";
 import ProjectCard from "@components/ProjectCard";
+import Footer from "@components/Footer";
 
 interface Props {
   skills: Skills;
@@ -15,7 +16,7 @@ interface Props {
 
 const Home: NextPage<Props> = ({skills, projects}) => {
   return (
-    <div>
+    <>
       <Head>
         {/* <!-- Primary Meta Tags --> */}
         <title>Joaquín Montes</title>
@@ -80,7 +81,8 @@ I'm focused on frontend dev using technologies such as NextJS and React."
           ))}
         </section>
       </main>
-    </div>
+      <Footer />
+    </>
   );
 };
 
