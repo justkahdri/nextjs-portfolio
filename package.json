@@ -1,11 +1,13 @@
 {
   "name": "nextjs-portfolio",
-  "private": true,
+  "version": "2.1.2",
+  "private": false,
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "deploy": "vercel --prod"
   },
   "dependencies": {
     "next": "12.0.3",
