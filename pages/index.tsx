@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useRef, useState} from "react";
 import type {NextPage, GetServerSideProps} from "next";
 import Head from "next/head";
 import {MdMail} from "react-icons/md";
@@ -17,6 +17,23 @@ interface Props {
 }
 
 const Home: NextPage<Props> = ({skills, projects}) => {
+  const [toTop, setToTop] = useState(false);
+  const hero = useRef(null);
+
+  const toggleToTop: IntersectionObserverCallback = (entry) => {
+    entry[0].isIntersecting ? setToTop(false) : setToTop(true);
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(toggleToTop, {threshold: 0.2});
+
+    hero.current && observer.observe(hero.current);
+
+    return () => {
+      observer.disconnect;
+    };
+  }, []);
+
   return (
     <>
       <Head>
@@ -31,7 +48,10 @@ I'm focused on frontend dev using technologies such as NextJS and React."
       </Head>
 
       <main className={styles.main}>
-        <section className={styles.hero}>
+        <a href="#top" id={styles.top} style={toTop ? {display: "block"} : {display: "none"}}>
+          ☝
+        </a>
+        <section ref={hero} className={styles.hero}>
           <h4 className={styles.title}>👋 Hi!</h4>
 
           <h1 className={styles.description}>
@@ -45,10 +65,6 @@ I'm focused on frontend dev using technologies such as NextJS and React."
             objective is to become a fullstack senior developer. Maybe you can help me achieve it!
           </p>
 
-          {/* <p>
-            get in touch:
-            <a href="mailto:jrmontes@estudiantes.unsam.edu.ar">jrmontes@estudiantes.unsam.edu.ar</a>
-          </p> */}
           <div className={styles["two-buttons"]}>
             <StyledButton isUpperCase color="secondary" url="#contact">
               Contact

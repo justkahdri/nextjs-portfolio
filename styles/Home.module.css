@@ -5,11 +5,20 @@
 
 .main {
   width: fit-content;
+  position: relative;
 }
 
 .italic {
   font-size: 2.5rem;
   font-style: italic;
+}
+
+#top {
+  position: fixed;
+  z-index: 2;
+  bottom: 25px;
+  right: 20px;
+  font-size: 3rem;
 }
 
 /* HERO SECTION */
