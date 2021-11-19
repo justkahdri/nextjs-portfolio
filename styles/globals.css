@@ -45,6 +45,7 @@ a {
 }
 
 .featured {
+  height: fit-content;
   color: var(--primary);
 }
 

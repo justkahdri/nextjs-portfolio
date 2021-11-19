@@ -37,8 +37,6 @@ class MyDocument extends Document {
           <meta content="/images/studio.jpg" property="twitter:image" />
 
           <meta charSet="utf-8" />
-          <meta content="width=device-width, initial-scale=1" name="viewport" />
-          <meta content="#000000" name="theme-color" />
           <link href="/android-icon-192x192.png" rel="icon" sizes="192x192" type="image/png" />
           <link href="/android-icon-96x96.png" rel="icon" sizes="96x96" type="image/png" />
           <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />

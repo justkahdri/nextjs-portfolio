@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from "react";
 import type {NextPage, GetServerSideProps} from "next";
 import Head from "next/head";
-import {MdMail} from "react-icons/md";
+import {MdMail, MdOutlineDateRange} from "react-icons/md";
 import {BsLinkedin, BsGithub, BsTwitter} from "react-icons/bs";
 
 import styles from "../styles/Home.module.css";
@@ -15,6 +15,34 @@ interface Props {
   skills: Skills;
   projects: Project[];
 }
+
+const LINKS = [
+  {
+    icon: MdMail,
+    label: "Email",
+    url: "mailto:jrmontes@estudiantes.unsam.edu.ar",
+  },
+  {
+    url: "https://calendly.com/kahdri/15",
+    icon: MdOutlineDateRange,
+    label: "Book a meeting",
+  },
+  {
+    url: "https://twitter.com/justkahdri",
+    icon: BsTwitter,
+    label: "Twitter",
+  },
+  {
+    icon: BsLinkedin,
+    label: "Linkedin",
+    url: "https://linkedin.com/in/joaquin-montes",
+  },
+  {
+    icon: BsGithub,
+    label: "Github",
+    url: "https://github.com/justkahdri",
+  },
+];
 
 const Home: NextPage<Props> = ({skills, projects}) => {
   const [toTop, setToTop] = useState(false);
@@ -45,10 +73,16 @@ const Home: NextPage<Props> = ({skills, projects}) => {
 I'm focused on frontend dev using technologies such as NextJS and React."
           name="description"
         />
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
 
       <main className={styles.main}>
-        <a href="#top" id={styles.top} style={toTop ? {display: "block"} : {display: "none"}}>
+        <a
+          aria-label="Go to top"
+          href="#top"
+          id={styles.top}
+          style={toTop ? {display: "block"} : {display: "none"}}
+        >
           ☝
         </a>
         <section ref={hero} className={styles.hero}>
@@ -102,42 +136,18 @@ I'm focused on frontend dev using technologies such as NextJS and React."
         <section className={styles.contact} id="contact">
           <h2>Get in touch</h2>
           <div className={styles.links}>
-            <a
-              className="featured"
-              href="mailto:jrmontes@estudiantes.unsam.edu.ar"
-              referrerPolicy="no-referrer"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <MdMail /> Email
-            </a>
-            <a
-              className="featured"
-              href="https://github.com/justkahdri"
-              referrerPolicy="no-referrer"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <BsGithub /> Github
-            </a>
-            <a
-              className="featured"
-              href="https://linkedin.com/in/joaquin-montes"
-              referrerPolicy="no-referrer"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <BsLinkedin /> LinkedIn
-            </a>
-            <a
-              className="featured"
-              href="https://twitter.com/justkahdri"
-              referrerPolicy="no-referrer"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <BsTwitter /> Twitter
-            </a>
+            {LINKS.map(({label, url, ...Link}) => (
+              <a
+                key={label}
+                className="featured"
+                href={url}
+                referrerPolicy="no-referrer"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <Link.icon /> {label}
+              </a>
+            ))}
           </div>
         </section>
       </main>

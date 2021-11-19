@@ -223,3 +223,13 @@
   align-items: center;
 }
 
+@media only screen and (max-width: 767px) {
+  .links {
+    flex-direction: column;
+  }
+
+  .contact a {
+    margin: 1.5vh 0;
+  }
+}
+
