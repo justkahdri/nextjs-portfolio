@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useState} from "react";
 import type {NextPage, GetServerSideProps} from "next";
 import Head from "next/head";
+import Image from "next/image";
 import {MdMail, MdOutlineDateRange} from "react-icons/md";
 import {BsLinkedin, BsGithub, BsTwitter} from "react-icons/bs";
 
@@ -135,19 +136,24 @@ I'm focused on frontend dev using technologies such as NextJS and React."
 
         <section className={styles.contact} id="contact">
           <h2>Get in touch</h2>
-          <div className={styles.links}>
-            {LINKS.map(({label, url, ...Link}) => (
-              <a
-                key={label}
-                className="featured"
-                href={url}
-                referrerPolicy="no-referrer"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <Link.icon /> {label}
-              </a>
-            ))}
+          <div className={styles["side-contact"]}>
+            <figure>
+              <Image alt="Contact Illustration" layout="fill" src="/hello.svg" />
+            </figure>
+            <div className={styles.links}>
+              {LINKS.map(({label, url, ...Link}) => (
+                <a
+                  key={label}
+                  className="featured"
+                  href={url}
+                  referrerPolicy="no-referrer"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <Link.icon /> {label}
+                </a>
+              ))}
+            </div>
           </div>
         </section>
       </main>

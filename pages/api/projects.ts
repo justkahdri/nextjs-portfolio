@@ -2,15 +2,15 @@ import type {NextApiRequest, NextApiResponse} from "next";
 
 const PROJECTS: Project[] = [
   {
-    title: "Capigram",
-    background: "#FD578C",
+    title: "RhodoKros",
+    background: "#f17a7a",
     description: [
-      "A PWA made with React, GraphQL and implementing mobile-first design.",
-      "Inspired on Instagram functionality.",
+      "This is a landing page made for RhodoKros, a handcrafted jewelry brand. It was made with NextJS and ChakraUI.",
+      "The page was designed to promote the brand and redirect the public to the brand's social networks.",
     ],
-    cover: "capigram.png",
-    tag: "📱 Progressive Web App",
-    url: "https://capigram.vercel.app/",
+    cover: "rhodokros.jpg",
+    tag: "🏠 Landing Page",
+    url: "https://rhodokros.vercel.app/",
   },
   {
     title: "Just MELI",
@@ -22,6 +22,17 @@ const PROJECTS: Project[] = [
     cover: "front.png",
     tag: "🏆 Challenge",
     url: "https://github.com/justkahdri/mercadolibre-details-challenge",
+  },
+  {
+    title: "Capigram",
+    background: "#FD578C",
+    description: [
+      "A PWA made with React, GraphQL and implementing mobile-first design.",
+      "Inspired on Instagram functionality.",
+    ],
+    cover: "capigram.png",
+    tag: "📱 Progressive Web App",
+    url: "https://capigram.vercel.app/",
   },
   {
     title: "Just Boardy",

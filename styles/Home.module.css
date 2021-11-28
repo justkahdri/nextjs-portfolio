@@ -203,12 +203,24 @@
   font-style: italic;
 }
 
+.contact figure {
+  /* RATIO: 2/3 */
+  --size: 15vw;
+  --max-size: 400px;
+  width: calc(var(--size) * 3);
+  height: calc(var(--size) * 2);
+  max-width: calc(var(--max-size) * 3);
+  max-height: calc(var(--max-size) * 2);
+  position: relative;
+  margin: 0 auto;
+}
+
 .links {
   display: flex;
   justify-content: center;
 }
 
-.contact svg {
+.contact .links svg {
   color: var(--primary);
   height: 3rem;
   margin-right: 6px;
@@ -224,6 +236,19 @@
 }
 
 @media only screen and (max-width: 767px) {
+  .contact figure {
+    --size: 20vw;
+  }
+
+  .side-contact {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    max-width: 90vw;
+  }
+
   .links {
     flex-direction: column;
   }
