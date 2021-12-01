@@ -1,4 +1,5 @@
 @use './foundations/colors' as *;
+@use './foundations/mixins' as mx;
 
 .container {
   min-width: 100vw;
@@ -41,9 +42,7 @@
   height: 100vh;
 
   /* DISPLAY */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  @include mx.flex-column
 }
 
 .title {
@@ -143,37 +142,44 @@
                         'content content';
   grid-gap: 6rem $gap-size;
   padding: 6rem 0 6rem $gap-size;
+
+  > h2 {
+    grid-area: heading;
+    margin: 0;
+  }
+
+  @media only screen and (max-width: 374px) {
+    grid-template: min-content 1fr /1fr;
+    grid-template-areas: 'heading' 'content';
+    padding-right: 8vw;
+  }
 }
 
-.grid > h2 {
-  grid-area: heading;
-  margin: 0;
-}
+.category {
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
 
-.category ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
+  li {
+    margin: 0.5rem 0;
+  }
 
-.category li {
-  margin: 0.5rem 0;
-}
-
-
-.category > h3 {
-  text-transform: uppercase;
-  font-size: 1.6rem;
-  color: $primary;
-  letter-spacing: 0.5rem;
-  font-weight: 300;
-  margin-top: 0;
-  margin-bottom: 2.5rem;
+  > h3 {
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    color: $primary;
+    letter-spacing: 0.5rem;
+    font-weight: 300;
+    margin-top: 0;
+    margin-bottom: 2.5rem;
+  }
 }
 
 
 /* PROJECTS SECTION */
-.stack {
+.cards-container {
   display: grid;
   grid-template: auto / 1fr;
   padding: 0 4rem;
@@ -182,13 +188,13 @@
 }
 
 @media only screen and (min-width: 1680px) {
-  .stack {
+  .cards-container {
     grid-template: auto / repeat(2, 1fr);
   }
 }
 
 @media only screen and (min-width: 2500px) {
-  .stack {
+  .cards-container {
     grid-template: auto / repeat(3, 1fr);
   }
 }
@@ -198,28 +204,36 @@
   padding: 0 4rem;
   margin: 10rem 0;
   text-align: center;
-}
+  h2 {
+    font-size: 3rem;
+    font-style: italic;
+  }
+  figure {
+    /* RATIO: 2/3 */
+    $size: 15vw;
+    $max-size: 400px;
+    width: calc($size * 3);
+    height: calc($size * 2);
+    max-width: calc($max-size * 3);
+    max-height: calc($max-size * 2);
+    position: relative;
+    margin: 0 auto;
 
-.contact h2 {
-  font-size: 3rem;
-  font-style: italic;
-}
+    @media only screen and (max-width: 768px) {
+      $size: 20vw;
+    }
+  }
 
-.contact figure {
-  /* RATIO: 2/3 */
-  $size: 15vw;
-  $max-size: 400px;
-  width: calc($size * 3);
-  height: calc($size * 2);
-  max-width: calc($max-size * 3);
-  max-height: calc($max-size * 2);
-  position: relative;
-  margin: 0 auto;
+  a {
+    margin: 0 1.5vw;
+    font-weight: 400;
+    text-transform: uppercase;
+    @include mx.center-flex(align-items)
+  }
 }
 
 .links {
-  display: flex;
-  justify-content: center;
+  @include mx.center-flex(justify-content)
 }
 
 .contact .links svg {
@@ -229,23 +243,16 @@
   width: 3rem;
 }
 
-.contact a {
-  margin: 0 1.5vw;
-  font-weight: 400;
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
-}
-
 @media only screen and (max-width: 767px) {
-  .contact figure {
-    --size: 20vw;
+  .contact {
+    a {
+      margin: 1.5vh 0;
+    }
   }
 
   .side-contact {
+    @include mx.center-flex(justify-content);
     margin: 0 auto;
-    display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     flex-direction: row-reverse;
     max-width: 90vw;
@@ -253,10 +260,6 @@
 
   .links {
     flex-direction: column;
-  }
-
-  .contact a {
-    margin: 1.5vh 0;
   }
 }
 

@@ -128,7 +128,7 @@ I'm focused on frontend dev using technologies such as NextJS and React."
           ))}
         </section>
 
-        <section className={styles.stack} id="projects">
+        <section className={styles["cards-container"]} id="projects">
           {projects.map((project) => (
             <ProjectCard key={project.title} {...project} />
           ))}
