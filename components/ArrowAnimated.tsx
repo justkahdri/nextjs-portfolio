@@ -1,6 +1,5 @@
 import React from "react";
-
-import styles from "@styles/ArrowAnimated.module.css";
+import styles from "@styles/ArrowAnimated.module.scss";
 
 const ArrowAnimated = () => (
   <svg id={styles.arrows}>

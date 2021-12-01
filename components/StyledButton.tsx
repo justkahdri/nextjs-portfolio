@@ -1,6 +1,6 @@
 import React, {AnchorHTMLAttributes, FC} from "react";
 
-import styles from "@styles/StyledButton.module.css";
+import styles from "@styles/StyledButton.module.scss";
 
 interface Props {
   color: "primary" | "secondary" | "dark";

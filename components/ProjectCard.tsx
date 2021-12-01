@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import StyledButton from "./StyledButton";
 
-import styles from "@styles/ProjectCard.module.css";
+import styles from "@styles/ProjectCard.module.scss";
 
 const ProjectCard = ({title, description, cover, tag, url, background = "#D2F3F4"}: Project) => {
   return (

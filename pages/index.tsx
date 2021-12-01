@@ -5,7 +5,7 @@ import Image from "next/image";
 import {MdMail, MdOutlineDateRange} from "react-icons/md";
 import {BsLinkedin, BsGithub, BsTwitter} from "react-icons/bs";
 
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Home.module.scss";
 
 import ArrowAnimated from "@components/ArrowAnimated";
 import StyledButton from "@components/StyledButton";

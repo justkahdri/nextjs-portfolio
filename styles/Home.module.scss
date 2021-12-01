@@ -1,3 +1,5 @@
+@use './foundations/colors' as *;
+
 .container {
   min-width: 100vw;
   overflow: visible;
@@ -132,15 +134,15 @@
 
 /* SKILLS SECTION */
 .grid {
-  --gap-size: 8vw;
+  $gap-size: 8vw;
   display: grid;
   min-height: 80vh;
   grid-template: min-content repeat(2, 1fr) / repeat(2, 1fr);
   grid-template-areas:  'heading heading'
                         'content content'
                         'content content';
-  grid-gap: 6rem var(--gap-size);
-  padding: 6rem 0 6rem var(--gap-size);
+  grid-gap: 6rem $gap-size;
+  padding: 6rem 0 6rem $gap-size;
 }
 
 .grid > h2 {
@@ -162,7 +164,7 @@
 .category > h3 {
   text-transform: uppercase;
   font-size: 1.6rem;
-  color: var(--primary);
+  color: $primary;
   letter-spacing: 0.5rem;
   font-weight: 300;
   margin-top: 0;
@@ -205,12 +207,12 @@
 
 .contact figure {
   /* RATIO: 2/3 */
-  --size: 15vw;
-  --max-size: 400px;
-  width: calc(var(--size) * 3);
-  height: calc(var(--size) * 2);
-  max-width: calc(var(--max-size) * 3);
-  max-height: calc(var(--max-size) * 2);
+  $size: 15vw;
+  $max-size: 400px;
+  width: calc($size * 3);
+  height: calc($size * 2);
+  max-width: calc($max-size * 3);
+  max-height: calc($max-size * 2);
   position: relative;
   margin: 0 auto;
 }
@@ -221,7 +223,7 @@
 }
 
 .contact .links svg {
-  color: var(--primary);
+  color: $primary;
   height: 3rem;
   margin-right: 6px;
   width: 3rem;

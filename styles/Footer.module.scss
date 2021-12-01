@@ -1,0 +1,13 @@
+@use './foundations/colors' as *;
+
+.footer {
+  background-color: $dark;
+  color: white;
+  font-size: 1.6rem;
+  padding: 4px 0;
+}
+
+.centered {
+  width: fit-content;
+  margin: 0 auto;
+}
