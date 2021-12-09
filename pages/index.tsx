@@ -75,6 +75,10 @@ I'm focused on frontend dev using technologies such as NextJS and React."
           name="description"
         />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta
+          content="Joaquin Montes, Joaquín Rafael Montes, Joaquín Montes, justkahdri, kahdri, developer, frontend"
+          name="keywords"
+        />
       </Head>
 
       <main className={styles.main}>
