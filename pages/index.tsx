@@ -1,51 +1,16 @@
 import React, {useEffect, useRef, useState} from "react";
-import type {NextPage, GetServerSideProps} from "next";
+import type {NextPage} from "next";
 import Head from "next/head";
 import Image from "next/image";
-import {MdMail, MdOutlineDateRange} from "react-icons/md";
-import {BsLinkedin, BsGithub, BsTwitter} from "react-icons/bs";
 
-import styles from "../styles/Home.module.scss";
-
+import styles from "@styles/Home.module.scss";
+import {LINKS, SKILLS} from "@constants";
 import ArrowAnimated from "@components/ArrowAnimated";
 import StyledButton from "@components/StyledButton";
-import ProjectCard from "@components/ProjectCard";
 import Footer from "@components/Footer";
+import ProjectsSection from "@components/ProjectsSection";
 
-interface Props {
-  skills: Skills;
-  projects: Project[];
-}
-
-const LINKS = [
-  {
-    icon: MdMail,
-    label: "Email",
-    url: "mailto:jrmontes@estudiantes.unsam.edu.ar",
-  },
-  {
-    url: "https://calendly.com/kahdri/15",
-    icon: MdOutlineDateRange,
-    label: "Book a meeting",
-  },
-  {
-    url: "https://twitter.com/justkahdri",
-    icon: BsTwitter,
-    label: "Twitter",
-  },
-  {
-    icon: BsLinkedin,
-    label: "Linkedin",
-    url: "https://linkedin.com/in/joaquin-montes",
-  },
-  {
-    icon: BsGithub,
-    label: "Github",
-    url: "https://github.com/justkahdri",
-  },
-];
-
-const Home: NextPage<Props> = ({skills, projects}) => {
+const Home: NextPage = () => {
   const [toTop, setToTop] = useState(false);
   const hero = useRef(null);
 
@@ -120,7 +85,7 @@ I'm focused on frontend dev using technologies such as NextJS and React."
 
         <section className={styles.grid} id="skills">
           <h2 className={styles.italic}>Some technologies I worked with are</h2>
-          {Object.entries(skills).map(([category, values]) => (
+          {Object.entries(SKILLS).map(([category, values]) => (
             <article key={category} className={styles.category}>
               <h3>{category}</h3>
               <ul>
@@ -132,11 +97,7 @@ I'm focused on frontend dev using technologies such as NextJS and React."
           ))}
         </section>
 
-        <section className={styles["cards-container"]} id="projects">
-          {projects.map((project) => (
-            <ProjectCard key={project.title} {...project} />
-          ))}
-        </section>
+        <ProjectsSection />
 
         <section className={styles.contact} id="contact">
           <h2>Get in touch</h2>
@@ -164,21 +125,6 @@ I'm focused on frontend dev using technologies such as NextJS and React."
       <Footer />
     </>
   );
-};
-
-export const getServerSideProps: GetServerSideProps = async () => {
-  const skillsRes = await fetch(`${process.env.BASE_URL}/api/skills`);
-  const skills = await skillsRes.json();
-
-  const projectsRes = await fetch(`${process.env.BASE_URL}/api/projects`);
-  const projects = await projectsRes.json();
-
-  return {
-    props: {
-      skills,
-      projects,
-    },
-  };
 };
 
 export default Home;

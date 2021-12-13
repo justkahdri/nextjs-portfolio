@@ -1,0 +1,54 @@
+@use './foundations/colors' as *;
+@use './foundations/mixins' as mx;
+
+/* PROJECTS SECTION */
+.cards-container {
+  @include mx.center-flex(align-items);
+
+  flex-direction: column;
+  padding: 0 4rem;
+  margin-bottom: 8rem;
+
+  > *:first-child {
+    margin: 0;
+  }
+
+  > * {
+    margin-top: 5rem;
+    width: 100%;
+  }
+}
+
+.projects-link {
+  @include mx.center-flex(align-items);
+
+  border-radius: 12px;
+  padding: 12px;
+  width: fit-content;
+  white-space: nowrap;
+  background-color: $primary;
+  color: $light;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.8rem;
+
+  &:hover {
+    background-color: $dark-primary;
+  }
+
+  * {
+    margin-left: 6px;
+  }
+}
+
+@media only screen and (min-width: 1680px) {
+  .cards-container {
+    grid-template: auto / repeat(2, 1fr);
+  }
+}
+
+@media only screen and (min-width: 2500px) {
+  .cards-container {
+    grid-template: auto / repeat(3, 1fr);
+  }
+}

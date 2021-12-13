@@ -14,6 +14,12 @@ declare global {
     background?: string;
     url: string;
   }
+
+  interface ExternalLink {
+    icon: IconType;
+    url: string;
+    label: string;
+  }
 }
 
 export {};
